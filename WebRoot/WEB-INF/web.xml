@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name></display-name>	
+    <filter>
+      <filter-name>CharacterEncodingFilter</filter-name>
+      <filter-class>com.qiYang.filter.CharacterEncodingFilter</filter-class>
+      <init-param>
+ 	<param-name>chars</param-name>
+      <param-value>utf-8</param-value>
+      </init-param>
+ 	</filter>
+  <filter-mapping>
+      <filter-name>CharacterEncodingFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+   <filter>
+  	<filter-name>struts2</filter-name>
+  	<filter-class>
+  		org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+  	</filter-class>
+  </filter>
+
+
+  <filter-mapping>
+  	<filter-name>struts2</filter-name>
+  	<url-pattern>*.action</url-pattern>
+  </filter-mapping>
+  
+  	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+	
+  <welcome-file-list>
+    <welcome-file>login.jsp</welcome-file>
+  </welcome-file-list>
+
+  
+   <!-- spring配置文件指定 -->
+  <context-param>  
+    <param-name>contextConfigLocation</param-name>  
+    <param-value>classpath:applicationContext-*.xml</param-value>  
+  </context-param>
+
+  <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GogoServlet</servlet-name>
+    <servlet-class>com.qiYang.action.GogoServletImpl</servlet-class>
+  </servlet>
+  
+  <!-- alipay -->
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RSATrade</servlet-name>
+    <servlet-class>com.alipay.client.trade.RSATrade</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <description>this is the serlvet of rsaNotification from alipay</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>RSANotifyReceiver</servlet-name>
+    <servlet-class>com.alipay.client.notify.RSANotifyReceiver</servlet-class>
+  </servlet>
+  
+  
+  <servlet>
+    <servlet-name>PresidentImp</servlet-name>
+    <servlet-class>com.qiYang.action.PresidentImp</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AreaServelt</servlet-name>
+    <servlet-class>com.qiYang.service.AreaServelt</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddBranchSchool</servlet-name>
+    <servlet-class>com.qiYang.service.AddBranchSchool</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>AddInfo</servlet-name>
+    <servlet-class>com.qiYang.action.AddInfo</servlet-class>
+  </servlet>
+	 <servlet>
+     <servlet-name>UploadPhotoServlet</servlet-name>
+     <servlet-class>com.org.baoku.team.servlet.UploadPhotoServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>BatchUploadingAciton</servlet-name>
+    <servlet-class>com.qiYang.action.BatchUploadingAciton</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>notifyAction</servlet-name>
+    <servlet-class>com.alipay.action.NotifyAction</servlet-class>
+  </servlet>
+
+
+
+  <servlet-mapping>
+     <servlet-name>UploadPhotoServlet</servlet-name>
+     <url-pattern>/UploadPhotoServlet</url-pattern>
+  </servlet-mapping>
+
+
+<filter>
+  <filter-name>openSessionInView</filter-name>
+  <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+</filter>
+
+<filter-mapping>
+  <filter-name>openSessionInView</filter-name>
+  <url-pattern>/*</url-pattern>
+</filter-mapping>
+
+
+
+  <servlet-mapping>
+    <servlet-name>GogoServlet</servlet-name>
+    <url-pattern>/servlet/GogoServlet</url-pattern>
+  </servlet-mapping>
+  <!-- alipay -->
+  <servlet-mapping>
+    <servlet-name>RSATrade</servlet-name>
+    <url-pattern>/servlet/rsaTrade</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>RSANotifyReceiver</servlet-name>
+    <url-pattern>/servlet/RSANotifyReceiver</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet-mapping>
+    <servlet-name>PresidentImp</servlet-name>
+    <url-pattern>/servlet/President</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AreaServelt</servlet-name>
+    <url-pattern>/Pages/AreaServelt</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddBranchSchool</servlet-name>
+    <url-pattern>/Pages/AddBranchSchool</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddInfo</servlet-name>
+    <url-pattern>/servlet/AddInfo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>BatchUploadingAciton</servlet-name>
+    <url-pattern>/servlet/BatchUploadingAciton</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>notifyAction</servlet-name>
+    <url-pattern>/servlet/NotifyAction</url-pattern>
+  </servlet-mapping>
+  </web-app>

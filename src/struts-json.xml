@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	 <package name="json" extends="json-default" namespace="/">
+	 <!-- 根据总校id获取分校 -->
+		<action name="getBranchJson" class="jsonAction" method="allBranch">
+			<result type="json">
+				<param name="includeProperties">
+				branch\[\d+\]\.branchSchoolId,branch\[\d+\]\.braschName
+				</param> 
+				<!-- <param name="excludeProperties">
+				schoolid,branch\[\d+\]\.tbTown,branch\[\d+\]\.tbSchool,
+				branch\[\d+\]\.tbGrades\[\d+\],branch\[\d+\]\.tbUserinfoclasses\[\d+\],branch\[\d+\]\.tbViptimes\[\d+\],
+				branch\[\d+\]\.tbPushs\[\d+\],branch\[\d+\]\.tbSchoolnotices\[\d+\],branch\[\d+\]\.tbSubjectinbranchschools\[\d+\],branch\[\d+\]\.tbBillses\[\d+\],
+				branch\[\d+\]\.tbUserinfos\[\d+\],branch\[\d+\]\.tbCourses\[\d+\],branch\[\d+\]\.tbCharges\[\d+\],branch\[\d+\]\.tbComplains\[\d+\],
+				branch\[\d+\]\.tbAttendances\[\d+\],branch\[\d+\]\.tbAdmins\[\d+\],branch\[\d+\]\.tbClassnotices\[\d+\]
+				</param> -->
+			</result>
+		</action>
+		<!-- 根据分校获取个人信息 -->
+		<action name="getUserInfoJson" class="jsonAction" method="allUserInfo">
+			<result type="json">
+				<param name="includeProperties">
+				userInfo\[\d+\]\.userInfoId,userInfo\[\d+\]\.userInfoName
+				</param> 
+			</result>
+		</action>
+		<!-- 根据科目获取课程 -->
+		<action name="getKechengJson" class="jsonAction" method="allKecheng">
+			<result type="json">
+				<param name="includeProperties">
+				kecheng\[\d+\]\.id,kecheng\[\d+\]\.lessonName
+				</param> 
+			</result>
+		</action>
+		<!-- 根据科目获取课程 -->
+		<action name="getKechengJsons" class="jsonAction" method="allKecheng2">
+			<result type="json">
+				<param name="includeProperties">
+				kecheng\[\d+\]\.id,kecheng\[\d+\]\.lessonName
+				</param> 
+			</result>
+		</action>
+		<!-- 根据城市获取地区 -->
+		<action name="getTownJson" class="jsonAction" method="allTown">
+			<result type="json">
+				<param name="includeProperties">
+				town\[\d+\]\.townId,town\[\d+\]\.townName
+				</param> 
+			</result>
+		</action>
+		<!-- 验证用户名重名 -->
+		<action name="checkName" class="jsonAction" method="checkName">
+			<result type="json">
+				<param name="includeProperties">size</param> 
+			</result>
+		</action>
+		<!-- 根据课程获取班-->
+		<action name="getLessonJsons" class="jsonAction" method="allBanInfo">
+			<result type="json">
+				<param name="includeProperties">
+				ban\[\d+\]\.courseId,ban\[\d+\]\.courseName
+				</param> 
+			</result>
+		</action>
+		<!-- 验证user表和ofuser表用户名重名 -->
+		<action name="checkLoginName" class="jsonAction" method="checkLoginName">
+			<result type="json">
+				<param name="includeProperties">size,userId,teachersize</param> 
+			</result>
+		</action>
+		<!--显示综合信息json接口  -->
+		<action name="viewInfoApi" class="jsonApiAction" method="showRecruitApi">
+			<result type="json">
+				<param name="root">jsonResult</param> 
+				<param name="excludeNullProperties">true</param> 
+			</result>
+		</action>
+		<!--显示城市列表json接口  -->
+		<action name="viewCityApi" class="jsonApiAction" method="showCityApi">
+			<result type="json">
+				<param name="includeProperties">data\.list\[\d+\]\.cityId,data\.list\[\d+\]\.cityName</param> 
+				<param name="root">jsonResult</param> 
+				<param name="excludeNullProperties">true</param> 
+			</result>
+		</action>
+		<!--注册学校json接口  -->
+		<action name="regSchoolApi" class="jsonApiAction" method="regSchool">
+			<result type="json">
+				<param name="root">jsonResult</param> 
+				<param name="excludeNullProperties">true</param> 
+			</result>
+		</action>
+		<!--获取绝对路径json接口  -->
+		<action name="absolutePathApi" class="jsonApiAction" method="absolutePath">
+			<result type="json">
+				<param name="root">jsonResult</param> 
+				<param name="excludeNullProperties">true</param> 
+			</result>
+		</action>
+		<!--显示城市列表json接口  -->
+		<action name="kechengApi" class="jsonApiAction" method="getKcByKemu">
+			<result type="json">
+				<param name="includeProperties">data\.list\[\d+\]\.id,data\.list\[\d+\]\.lessonName</param> 
+				<param name="root">jsonResult</param> 
+				<param name="excludeNullProperties">true</param> 
+			</result>
+		</action>
+	</package> 
+</struts>    

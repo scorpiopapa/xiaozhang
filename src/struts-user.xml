@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	 <package name="userAction" extends="struts-default" namespace="/">
+	 <!--未登录拦截器  -->
+		<interceptors>
+			<interceptor name="adminLJQ" class="com.qiYang.util.MyInterceptor"></interceptor>
+			<interceptor-stack name="myljq">
+				<interceptor-ref name="adminLJQ"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="nologin">/login.jsp</result>
+		</global-results>
+	 <!-- 老师登录 -->	
+		<action name="teacherLogin" class="userAction" method="teacherLogin">
+			<result name="success">/Pages/index.jsp</result>
+			<result name="fail">/login.jsp</result>
+		</action>
+		<!-- 查看校长及家长 -->
+		<action name="viewUsers" class="userAction" method="viewUsers">
+			<result name="master">/Pages/masterlist.jsp</result>
+			<result name="teacher">/Pages/userinfolist.jsp</result>
+			<result name="parent">/Pages/parentlist.jsp</result>
+			<result name="student">/Pages/studentlist.jsp</result>
+			<result name="fail">/login.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--添加老师  -->
+		<action name="addTeacher" class="userAction" method="addTeacher">
+			<result name="success">/Pages/addteacher.jsp</result>
+			<result name="fail">/login.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存添加老师  -->
+		<action name="addTeacherDo" class="userAction" method="addTeacherDo">
+			<result name="success" type="chain">viewUsers</result>
+			<result name="fail" type="chain">addTeacher</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--显示存在老师基本信息  -->
+		<action name="addTeacherToclass" class="userAction" method="addTeacherToclass">
+			<result name="success">/Pages/existteacher.jsp</result>
+			<result name="fail">/login.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存加入老师  -->
+		<action name="addTeacherToclassDo" class="userAction" method="addTeacherToclassDo">
+			<result name="success" type="chain">viewUsers</result>
+			<result name="fail" type="chain">addTeacher</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--编辑老师  -->
+		<action name="editTeacher" class="userAction" method="editTeacher">
+			<result name="success">/Pages/editteacher.jsp</result>
+			<result name="fail">/login.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存编辑老师  -->
+		<action name="editTeacherDo" class="userAction" method="editTeacherDo">
+			<result name="success" type="chain">viewUsers</result>
+			<result name="fail">/dataerror.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--删除老师  -->
+		<action name="delTeacherDo" class="classAction" method="delTeacherDo">
+			<result name="success" type="chain">viewUsers</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	</package> 
+</struts>    

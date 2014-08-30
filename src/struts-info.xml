@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	 <package name="infoAction" extends="struts-default" namespace="/">
+	 <!--未登录拦截器  -->
+		<interceptors>
+			<interceptor name="adminLJQ" class="com.qiYang.util.MyInterceptor"></interceptor>
+			<interceptor-stack name="myljq">
+				<interceptor-ref name="adminLJQ"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="nologin">/login.jsp</result>
+		</global-results>
+		<!-- 查看信息 -->
+		<action name="viewInformation" class="infoAction" method="viewInformation">
+			<result type="freemarker">/Pages/infolist.ftl</result>
+			<result name="showInfo" type="freemarker">/Pages/showInfo.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存信息 -->
+		<action name="saveOrUpdateInfo" class="infoAction" method="saveOrUpdateInfo">
+			<result type="freemarker">/Pages/infolist.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 显示招聘信息 -->
+		<action name="showRecruits" class="infoAction" method="showRecruits">
+			<result type="freemarker">/Pages/showRecruit.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 添加招聘信息 -->
+		<action name="addRecruits" class="infoAction" method="addRecruits">
+			<result type="freemarker">/Pages/addRecruit.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存添加招聘信息 -->
+		<action name="saveRecruits" class="infoAction" method="saveRecruits">
+			<result type="chain">showRecruits</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 编辑招聘信息-->
+		<action name="editRecruits" class="infoAction" method="editRecruits">
+			<result type="freemarker">/Pages/editRecruit.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存编辑招聘信息 -->
+		<action name="updateRecruits" class="infoAction" method="updateRecruits">
+			<result type="chain">showRecruits</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--删除招聘信息  -->
+		<action name="deleteRecruits" class="infoAction" method="deleteRecruits">
+			<result type="chain">showRecruits</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 显示合作学校信息 -->
+		<action name="showSchoolUnion" class="infoAction" method="showSchoolUnion">
+			<result type="freemarker">/Pages/showSchoolUnion.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 添加合作学校信息 -->
+		<action name="addSchoolUnion" class="infoAction" method="addSchoolUnion">
+			<result type="freemarker">/Pages/addSchoolUnion.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存添加合作学校信息 -->
+		<action name="saveSchoolUnion" class="infoAction" method="saveSchoolUnion">
+			<result type="chain">showSchoolUnion</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 编辑合作学校信息-->
+		<action name="editSchoolUnion" class="infoAction" method="editSchoolUnion">
+			<result type="freemarker">/Pages/editSchoolUnion.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存编辑合作学校信息 -->
+		<action name="updateSchoolUnion" class="infoAction" method="updateSchoolUnion">
+			<result type="chain">showSchoolUnion</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--删除合作学校信息  -->
+		<action name="deleteSchoolUnion" class="infoAction" method="deleteSchoolUnion">
+			<result type="chain">showSchoolUnion</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 显示首页图片，广告图片 -->
+		<action name="showAboutImage" class="infoAction" method="showAboutImage">
+			<result type="freemarker">/Pages/showAboutImage.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 添加首页图片，广告图片 -->
+		<action name="addAboutImage" class="infoAction" method="addAboutImage">
+			<result type="freemarker">/Pages/addAboutImage.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存添加首页图片，广告图片 -->
+		<action name="saveAboutImage" class="infoAction" method="saveAboutImage">
+			<result type="chain">showAboutImage</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 编辑首页图片，广告图片-->
+		<action name="editAboutImage" class="infoAction" method="editAboutImage">
+			<result type="freemarker">/Pages/editAboutImage.ftl</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存编辑首页图片，广告图片 -->
+		<action name="updateAboutImage" class="infoAction" method="updateAboutImage">
+			<result type="chain">showAboutImage</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--删除首页图片，广告图片  -->
+		<action name="deleteAboutImage" class="infoAction" method="deleteAboutImage">
+			<result type="chain">showAboutImage</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	</package> 
+</struts>    

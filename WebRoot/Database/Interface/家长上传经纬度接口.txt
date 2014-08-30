@@ -1,0 +1,19 @@
+﻿URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServletImpl?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "parentsPositioning",
+	"latitude":"xxx",//纬度
+	"longitude":"xxx",//经度
+	"userinfoId":"xxx"//用户ID
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+   }
+}

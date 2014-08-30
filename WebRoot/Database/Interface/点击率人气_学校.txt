@@ -1,0 +1,43 @@
+﻿学校详情接口及其人气累计接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  20140614
+修订作者:  池长购
+修订内容:  响应数据添加字段imagesNumber，latitude,longitude
+======================================
+请求数据
+	 "action_flag":  "schoolDetail01",
+	 "schoolId":"xxx", //	学校Id(必须)
+	 "type":"xxx", //	"1-分校，默认总校"（必须）
+	 "userinfoId":"xxx", //	"用户id"（必须）
+	
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		tbBranchschool: {
+			latitude:0.0,//纬度
+			longitude:0.0,//经度
+			branchschoolId: 1,//学校ID
+			branchschoolName: "杭州启扬教育集团",//学校名称
+			branchschoolMinName: "杭州启扬教育",	//学校简称
+			imagesNumber，1，//图片总数
+			branchschoolAddress: "杭州市上城区清泰街509号富春大厦3楼",//学校地址
+			branchschoolPhone: "0571－87913187",//学校联系方式
+			branchschoolBusWay: "3路、66路、108路、801路、155路等",	//学校交通
+			branchschoolStopLocation: "清泰街佑圣观路口",	//学校停车位
+			branchschoolIntroduce: "启扬国际语言教育中心七年来先后开设九所分支机构，分别是湖滨校区、萧山校区、滨江校区、文教校区、朝晖校区、浦沿校区、桐庐校区、安吉校区和青岛校区。拥有60名教职员工，年培训量达到10000人次；全体工作人员均受过高等教育且具有多年从事教育招生咨询工作经验，公司也不惜高薪聘请有开拓意识的专业教师、外藉教师。一流的教学环境、一流的教学理念、一流的师资队伍、一流的教学队伍，铸造了启扬一流的品牌学校。各校区同时采用统一的品牌、统一的师资配备、统一的教学质量、统一的教学服务、统一的教学管理制度，从而确保启扬教育能够为所有学生提供最优质的教学和服务。 启扬教育服务有限公司主要有五种产品：1、教学产品 2、教师培训3、行政管理文件 4、启扬培训机构管理系统 5、形象设计与学校纪念品。另外公司为广大同行业提供教育管理咨询、企业管理咨询、人力资源派遣、教育管理软件开发等各种项目的服务。",//学校简介（后期改网页形式）
+			branchschoolPictureUrl: "http://changgocn.xicp.net:8080/qiyangs/images/nomal/1378098124984660804.jpg",//学校图片
+			popularity: 3	//学校人气
+			},
+			courses: [
+				{
+				courseId: 71,	//课程Id
+				courseName: "一年级思维数学"//课程名
+				},
+				{}
+			]
+   }
+}

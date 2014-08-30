@@ -1,0 +1,25 @@
+﻿宝宝去哪里_五广告接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  20140601
+修订作者:  池长购
+修订内容:  接口响应数据结构变动
+======================================
+请求数据
+	"action_flag":  "fiveTbAdvertisement",
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":{
+		"list": 
+			[
+		{
+			url: "http://changgocn.xicp.net:8080/qiyangs/images/nomal/003",//图片地址
+			hyperlink: "http://www.baidu.com/",	//超级链接
+			type: 0	//0-超链接，1-课程，2-优惠,3-总校，4-分校
+		}
+		]
+	}
+}

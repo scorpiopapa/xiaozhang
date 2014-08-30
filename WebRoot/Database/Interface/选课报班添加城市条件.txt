@@ -1,0 +1,34 @@
+﻿选课报班添加城市条件接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "findCurriculum",
+	 "branchschoolId":"xxx", //	分校ID
+	 "cityId":"xxx", //	"城市ID
+响应数据
+{
+	succ: true,
+	code: 0,
+	message: "成功",
+	data: {
+		tblesson: {
+				1: [
+					{
+					id: 41,//课程ID
+					schoolName: "杭州启扬教育集团", //学校名字
+					lessonName: "直映英语轻松记忆班"//课程名字
+					}
+					]
+			},
+		tbsubject: [
+			{
+			subjectId: 1,//学科ID
+			subjectName: "英语"//学科名称
+			}
+		]
+	}
+}

@@ -1,0 +1,25 @@
+﻿支付接口接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  20140623
+修订作者:  池长购
+修订内容:  响应参数多了payInfo
+======================================
+请求数据
+	"action_flag":  "alipaySuccess",
+	"quantity":"xxx",	//，默认为1，购买数量
+	"curriculumId":"xxx",//type为报班时，必须给值
+	"teamId":"xxx",//type为优惠时，必须给值
+	"type":"xxx", //0-优惠，1-报班，默认优惠
+	"origin":"xxx",	//购买总额
+	"userinfoId":"xxx"//用户ID
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		payInfo: "_input_charset="utf-8"&body="校掌支付宝收款"&notify_url="http://changgo1.vicp.cc:8080/qiyangs/servlet/NotifyAction"&out_trade_no="20140623153734-291"&partner="2088011144552964"&payment_type="1"&seller_id="1852886290@qq.com"&service="mobile.securitypay.pay"&subject="启扬优惠"&total_fee="90.0"&sign="lLurviGlr/rIgoTLf1thUTho6lgoFsCZZg3j+RVqWzbVxwE25EZw4VvS62M5OUNC9mFLyunJHkRMQTXYX6Y2wEgW0X3URoEnlK/TY02UoGx7oDmSqtciqRbZbW23qrk79UZ+NBwXifAP2yNuGUuIWZcGzP2BZsiAc2JAdeD/oGk="&sign_type="RSA""	//支付宝请求参数：待签名+签名+签名类型
+}
+   }
+}

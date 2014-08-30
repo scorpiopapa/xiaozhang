@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "dwr20.dtd">
+	<dwr>
+		<allow>
+			<!-- convert针对的model,match是值需要针对的model类的地址 converter的bean要求model类要有set,get,无参构造等方法-->
+			<convert match="com.qiYang.model.web.*" converter="bean"></convert>
+			<convert match="com.qiYang.model.*" converter="bean"></convert>
+			<convert match="com.qiYang.util.Page" converter="bean"></convert>
+			
+			<!--create针对dao层的 creator的new就是意思new一个UserstableImpl类的userstableImpl出来，这样就可以调用了 -->
+			
+			<create javascript="secondBackstage" creator="new">
+				<param name="class">com.qiYang.service.SecondBackstage</param>
+			</create>
+			<create javascript="gogoServiceImpl" creator="new">
+				<param name="class">com.qiYang.service.GogoServiceImpl</param>
+			</create>
+			<create javascript="page" creator="new">
+				<param name="class">com.qiYang.util.Page</param>
+			</create>
+		</allow>
+	</dwr>

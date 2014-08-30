@@ -1,0 +1,23 @@
+﻿宝宝去哪里啦_获取经纬度及其下载url接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "childLocation02",
+	"userinfoId":"xxx", 	//用户ID
+	"type":"xxx"	// 安卓可以不带参数，ios则参数为ios大小写不明感
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		childLongitude: 0, 	//孩子经度 0为空
+		childLatitude: 0,	//纬度	0为空
+		alterTime: "2014-04-15 11:11:29", 	//修改时间
+		url: "http://changgocn.xicp.net:8080/qiyangs/baby1.html"	//下载路径
+   }
+}

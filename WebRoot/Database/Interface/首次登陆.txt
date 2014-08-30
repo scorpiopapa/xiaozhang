@@ -1,0 +1,39 @@
+﻿首次登陆接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "firstLogin",
+	"userName":"xxx",
+	"userPassword":"xxx"
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+	isValid: x,
+	userinfoId: xxx,
+	root:xxx,
+	isParent：xxx
+   }
+}
+======================================
+接口说明:  软件第一层登陆
+请求数据:
+0.action_flag	方法参数
+1.userName	用户帐户
+2.password	密码
+
+响应数据:
+0.succ	true成功，false失败。
+0.code	返回码
+0.message 返回信息
+0.data	反馈数据
+1.isValid  1-可登陆家校通，0-不可登陆家校通
+2.userinfoId 用户Id
+3.root 0-校长，1-老师，2-家长，3-学生
+4.isParent 1-有孩子，0-无孩子

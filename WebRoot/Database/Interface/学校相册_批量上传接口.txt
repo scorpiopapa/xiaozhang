@@ -1,0 +1,19 @@
+﻿URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/BatchUploadingAciton?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "uploadingSchoolPhotoCopy",
+	"schoolId":"xxx",//学校Id
+	"fileNames":"???"，//图片文件
+	"pusherName":"xxx"//推广人名
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+   }
+}

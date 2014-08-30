@@ -1,0 +1,47 @@
+﻿注册页面_获取城市跟年级接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+
+    "action_flag":  "cityAndGrage"
+
+响应数据
+{
+    "succ": Boolean,
+    "code":  "xxx",
+    "message":  "xxx",
+    "data":  {
+		citys:[
+		   {
+			cityId: "85",
+			spell: " mianyang",
+			cityName: "绵阳市"
+		    }
+		]
+		grades: [
+		   {
+			gradeId: "20",
+			gradeName: "一年级"
+		    }
+		]
+    }
+}
+======================================
+接口说明:  用于访问注册用户页面获取城市跟年级
+请求数据:
+无参数
+响应数据:
+0.  succ true成功，false失败。
+0.  code  返回码
+0.  message  返回信息
+4.  citys  城市列表
+5.  cityId  城市编号
+6.  spell   城市拼音
+7.  cityName  城市名
+8.  grades  年段列表
+9.  gradeId  年段编号
+10. gradeName  年段年段

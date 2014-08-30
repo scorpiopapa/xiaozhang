@@ -1,0 +1,26 @@
+﻿我的_修改总校信息接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "updateSchoolInfo",
+	"schoolName": "杭州启扬教育集团", //学校名称
+	"schoolStopLocation": "清泰街佑圣观路口",	//学校地址
+	"schoolBusWay": "3路、66路、108路、801路、155路等",	//到校公交路线
+	"schoolMinName": "杭州启扬教育",	学校简称
+	"schoolPhone": "0571－87913187",	//学校电话
+	"townId": 39,	//城区ID
+	"schoolAddress": "杭州市上城区清泰街509号富春大厦3楼,	//学校地址
+	"schoolId":xxx	//学校ID
+	
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {		
+   }
+}

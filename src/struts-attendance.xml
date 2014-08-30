@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	 <package name="attendance1" extends="struts-default" namespace="/">
+	 <!--未登录拦截器  -->
+		<interceptors>
+			<interceptor name="adminLJQ" class="com.qiYang.util.MyInterceptor"></interceptor>
+			<interceptor-stack name="myljq">
+				<interceptor-ref name="adminLJQ"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="nologin">/login.jsp</result>
+		</global-results>
+		<!-- 显示出勤信息 -->
+		<action name="attendance" class="attendAction" method="attendance">
+			<result name="success">/Pages/attendancelist.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<action name="addOrEditAttendance" class="attendAction" method="addOrEditAttendance">
+			<result name="success">/Pages/attendancelist.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<action name="delAttendance" class="attendAction" method="delAttendance">
+			<result name="success" type="chain">attendance</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	</package> 
+</struts>    

@@ -1,0 +1,25 @@
+﻿我的_报班统计接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "myStatistics",
+	"userinfoId":"xxx",	//用户ID 
+	"startTime":"xxx",	//开始时间yyyy-MM-dd
+	"endTime":"xxx",	//结束时间yyyy-MM-dd
+	
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		curriculumNumber: 2,	//家长报班量
+		totalMoney: 60.1,	//合计金额
+		readCurriculumNumber: 1,//实际报班量
+		readTotalMoney: 30	//实际报班金额
+   }
+}

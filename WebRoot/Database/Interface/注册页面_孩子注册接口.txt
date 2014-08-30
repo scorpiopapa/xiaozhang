@@ -1,0 +1,39 @@
+﻿注册页面_孩子注册接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "registerChild",
+	"phone":"xxx",
+	"password":"xxx",
+	"email":"xxx",
+	"sex":"xxx", //性别
+	"gradeId":"xxx",
+	"userinfoId":"xxx"//家长ID
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+	"urlIos":"xxx",//ios的链接
+	"urlAndroid":"xxx"//Android的链接
+   }
+}
+======================================
+接口说明:  用于家长用户帮孩子注册
+请求数据:
+0.action_flag	方法参数
+1.phone		手机
+2.password	密码
+3.email		邮箱
+4.gradeId	年段Id
+5.cityId	城市Id
+响应数据:
+0.succ	true成功，false失败。
+0.code	返回码
+0.message	返回信息
+0.data	反馈数据

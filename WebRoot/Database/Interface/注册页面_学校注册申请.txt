@@ -1,0 +1,46 @@
+﻿注册页面_学校注册申请
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  20140617
+修订作者:  池长购
+修订内容:  请求数据添加cityName,响应数据添加isPusher
+======================================
+请求数据
+	"action_flag":  "schoolLogin",
+	"schoolName":  "xxx",
+	"address":  "xxx",
+	"phone":"xxx",
+	"name":  "xxx",
+	"userName":"xxx",
+	"password":"xxx",
+	"email":"xxx",
+	"cityName":"xxx",//定位，城市名称
+	"pusher":"xxx",
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		"isPusher":1,//0-不能上传相册，1-可上传相册
+		"schoolId":1,//学校ID
+		"pusherName":"XXX"//推广人名
+   }
+}
+======================================
+接口说明:  用于学校注册申请
+请求数据:
+0.action_flag	方法参数
+1.schoolName	学校名称
+2.address	学校地址
+3.phone		学校电话
+4.name		校长名称
+5.userName	校长手机
+6.password	密码
+7.email		邮箱
+8.pusher	推送人
+响应数据:
+0.succ	true成功，false失败。
+0.code	返回码
+0.message	返回信息
+0.data	反馈数据

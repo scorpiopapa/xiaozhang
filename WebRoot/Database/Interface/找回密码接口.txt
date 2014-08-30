@@ -1,0 +1,19 @@
+﻿找回密码接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/President?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "password01",
+	"userName":"xxx",	//用户名
+	"userinfoEmail":"xxx"	//用户邮箱 
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+   }
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	 <package name="viptime" extends="struts-default" namespace="/">
+	 <!--未登录拦截器  -->
+		<interceptors>
+			<interceptor name="adminLJQ" class="com.qiYang.util.MyInterceptor"></interceptor>
+			<interceptor-stack name="myljq">
+				<interceptor-ref name="adminLJQ"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="nologin">/login.jsp</result>
+		</global-results>
+	 	<!-- 显示VIP信息 -->
+		<action name="viptimeshow" class="viptimeAction" method="viptimeshow">
+			<result name="success">/Pages/viptime.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--添加或编辑VIP -->
+		<action name="addOrEditViptime" class="viptimeAction" method="addOrEditViptime">
+			<result name="add">/Pages/addViptime.jsp</result>
+			<result name="edit">/Pages/editViptime.jsp</result>
+			
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存添加VIP信息  -->
+		<action name="addViptimeDo" class="viptimeAction" method="addViptimeDo">
+			<result name="success" type="chain">viptimeshow</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存编辑VIP信息 -->
+		<action name="editViptimeDo" class="viptimeAction" method="editViptimeDo">
+			<result name="success" type="chain">viptimeshow</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--删除VIP信息  -->
+		<action name="delViptime" class="viptimeAction" method="delViptime">
+			<result name="success" type="chain">viptimeshow</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	</package> 
+</struts>    

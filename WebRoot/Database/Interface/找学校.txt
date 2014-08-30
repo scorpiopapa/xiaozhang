@@ -1,0 +1,52 @@
+﻿找学校接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  20140619
+修订作者:  池长购
+修订内容:  请求参数新添townId，branchschoolId
+======================================
+请求数据
+	"action_flag":  "findSchools",
+	 "schoolName":"xxx", //	学校名称
+	 "cityName":"xxx", //	"城市成名"（地位本市）
+	 "longitude":"xxx", //	"经度"（必须）
+	 "latitude":"xxx", //	"纬度"（必须）
+	 "orderType":"xxx", //	0-距离，1-名称，2-人气，三排序 默认人气排序
+	 "countPerPage":"xxx", // 每页多少条	默认6条
+	 "currentPage":"xxx", // 当前多少页	默认第一页
+	 "gradeId":"xxx", // 年段ID	
+	 "subjectId":"xxx", // 学科id	
+	 "courseName":"xxx", // 班的名称	
+	 "townId":"xxx", // 城区Id（跟cityName二选一）	
+	 "branchschoolId":"5"//学校ID，可以限制范围
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		allPages: 23,
+		currentList: [
+		{
+		branchschoolId: 2,	//学校Id
+		branchschoolName: "成都博瑞教育培训集团(测试)",	//学校名称
+		branchschoolAddress: "金牛区沙湾路77号，新天地大厦",	//学校地址
+		branchschoolPhone: "028-85109900",	//学校联系方式
+		branchschoolPictureUrl: "http://changgocn.xicp.net:8080/qiyangs/images/nomal/root2.png",	//学校logo
+		branchschoolLongitude: "104.05680342923",	//学校经度
+		branchschoolLatitude: "30.7001423041",		//学校纬度
+		distance: 12063078.668061867,			//跟你的距离
+		popularity: 0,					//点击人气
+		isNot: 1					//0-分校，1-总校
+		},
+		{},
+		{},
+		{},
+		{},
+		{}
+		],
+		allCount: 137,
+		countPerPage: 6,
+		currentPage: 1
+   }
+}

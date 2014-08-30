@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	     xmlns:aop="http://www.springframework.org/schema/aop"
+	     xmlns:tx="http://www.springframework.org/schema/tx"
+	     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<bean id="schoolDao" class="com.pro.dao.SchoolDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="schoolManager" class="com.pro.manager.SchoolManagerImpl">
+		<property name="baseDao" ref="schoolDao"></property>
+	</bean>
+	<bean id="branchschoolDao" class="com.pro.dao.BranchSchoolDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="branchschoolManager" class="com.pro.manager.BranchSchoolManagerImpl">
+		<property name="baseDao" ref="branchschoolDao"></property>
+	</bean>
+	<bean id="townDao" class="com.pro.dao.TownDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="townManager" class="com.pro.manager.TownManagerImpl">
+		<property name="baseDao" ref="townDao"></property>
+	</bean>
+	<bean id="cityDao" class="com.pro.dao.CityDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="cityManager" class="com.pro.manager.CityManagerImpl">
+		<property name="baseDao" ref="cityDao"></property>
+	</bean>
+	<bean id="subBranchDao" class="com.pro.dao.SubBranchDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="subBranchManager" class="com.pro.manager.SubBranchManagerImpl">
+		<property name="baseDao" ref="subBranchDao"></property>
+	</bean>
+	<bean id="subjectDao" class="com.pro.dao.SubjectDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="subjectManager" class="com.pro.manager.SubjectManagerImpl">
+		<property name="baseDao" ref="subjectDao"></property>
+	</bean>
+	<bean id="adminDao" class="com.pro.dao.AdminDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="adminManager" class="com.pro.manager.AdminManagerImpl">
+		<property name="baseDao" ref="adminDao"></property>
+	</bean>
+	<bean id="attendDao" class="com.pro.dao.AttendDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="attendManager" class="com.pro.manager.AttendManagerImpl">
+		<property name="baseDao" ref="adminDao"></property>
+	</bean>
+	<bean id="courseDao" class="com.pro.dao.CourseDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="courseManager" class="com.pro.manager.CourseManagerImpl">
+		<property name="baseDao" ref="courseDao"></property>
+	</bean>
+	<bean id="userInfoDao" class="com.pro.dao.UserInfoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userInfoManager" class="com.pro.manager.UserInfoManagerImpl">
+		<property name="baseDao" ref="userInfoDao"></property>
+	</bean>
+	<bean id="infoNoticeDao" class="com.pro.dao.InfoNoticeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="infoNoticeManager" class="com.pro.manager.InfoNoticeManagerImpl">
+		<property name="baseDao" ref="infoNoticeDao"></property>
+	</bean>
+	<bean id="viptimeDao" class="com.pro.dao.ViptimeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="viptimeManager" class="com.pro.manager.ViptimeManagerImpl">
+		<property name="baseDao" ref="viptimeDao"></property>
+	</bean>
+	<bean id="chargeDao" class="com.pro.dao.ChargeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="chargeManager" class="com.pro.manager.ChargeManagerImpl">
+		<property name="baseDao" ref="chargeDao"></property>
+	</bean>
+	<bean id="userDao" class="com.pro.dao.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userManager" class="com.pro.manager.UserManagerImpl">
+		<property name="baseDao" ref="userDao"></property>
+	</bean>
+	<bean id="userClassDao" class="com.pro.dao.UserInfoClassDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userClassManager" class="com.pro.manager.UserInfoClassManagerImpl">
+		<property name="baseDao" ref="userClassDao"></property>
+	</bean>
+	<bean id="kechengDao" class="com.pro.dao.KechengDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="kechengManager" class="com.pro.manager.KechengManagerImpl">
+		<property name="baseDao" ref="kechengDao"></property>
+	</bean>
+	<bean id="gradeDao" class="com.pro.dao.GradeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="gradeManager" class="com.pro.manager.GradeManagerImpl">
+		<property name="baseDao" ref="gradeDao"></property>
+	</bean>
+	<bean id="ofuserDao" class="com.pro.dao.OfuserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="ofuserManager" class="com.pro.manager.OfuserManagerImpl">
+		<property name="baseDao" ref="ofuserDao"></property>
+	</bean>
+	<bean id="lessonDao" class="com.pro.dao.LessonDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="lessonManager" class="com.pro.manager.LessonManagerImpl">
+		<property name="baseDao" ref="lessonDao"></property>
+	</bean>
+	<bean id="relationDao" class="com.pro.dao.RelationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="relationManager" class="com.pro.manager.RelationManagerImpl">
+		<property name="baseDao" ref="relationDao"></property>
+	</bean>
+	<bean id="infoDao" class="com.pro.dao.InformationDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="infoManager" class="com.pro.manager.InformationManagerImpl">
+		<property name="baseDao" ref="infoDao"></property>
+	</bean>
+	<bean id="regSchoolDao" class="com.pro.dao.RegSchoolDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="regSchoolManager" class="com.pro.manager.RegSchoolManagerImpl">
+		<property name="baseDao" ref="regSchoolDao"></property>
+	</bean>
+	<bean id="branchAction" class="com.qiYang.service.SchoolAction" scope="prototype">
+		<property name="adminManger" ref="adminManager"></property>
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+		<property name="townManager" ref="townManager"></property>
+		<property name="cityManager" ref="cityManager"></property>
+		<property name="courseManager" ref="courseManager"></property>
+		<property name="userInfoManager" ref="userInfoManager"></property>
+	</bean>
+	<bean id="schoolAction" class="com.pro.actions.SchoolAction" scope="prototype">
+		<property name="adminManger" ref="adminManager"></property>
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+		<property name="townManager" ref="townManager"></property>
+		<property name="cityManager" ref="cityManager"></property>
+	</bean>
+	<bean id="subBranchAction" class="com.pro.actions.SubBranchAction" scope="prototype">
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+		<property name="townManager" ref="townManager"></property>
+		<property name="cityManager" ref="cityManager"></property>
+		<property name="subBranchManager" ref="subBranchManager"></property>
+		<property name="subjectManager" ref="subjectManager"></property>
+	</bean>
+	<bean id="adminAction" class="com.pro.actions.AdminAction" scope="prototype">
+		<property name="adminManager" ref="adminManager"></property>
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+	</bean>
+	<bean id="attendAction" class="com.pro.actions.AttendAction" scope="prototype">
+		<property name="adminManager" ref="adminManager"></property>
+		<property name="attendManager" ref="attendManager"></property>
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+		<property name="courseManager" ref="courseManager"></property>
+		<property name="userInfoManager" ref="userInfoManager"></property>
+	</bean>
+	<bean id="infoNoticeAction" class="com.pro.actions.InfoNoticeAction" scope="prototype">
+		<property name="adminManager" ref="adminManager"></property>
+		<property name="infoNoticeManager" ref="infoNoticeManager"></property>
+	</bean>
+	<bean id="viptimeAction" class="com.pro.actions.ViptimeAction" scope="prototype">
+		<property name="adminManager" ref="adminManager"></property>
+		<property name="viptimeManager" ref="viptimeManager"></property>
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+		<property name="userInfoManager" ref="userInfoManager"></property>
+	</bean>
+	<bean id="chargeAction" class="com.pro.actions.ChargeAction" scope="prototype">
+		<property name="adminManager" ref="adminManager"></property>
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="chargeManager" ref="chargeManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+	</bean>
+	<bean id="userAction" class="com.pro.actions.UserAction" scope="prototype">
+		<property name="userManager" ref="userManager"></property>
+		<property name="adminManager" ref="adminManager"></property>
+		<property name="userInfoManager" ref="userInfoManager"></property>
+		<property name="userclassManager" ref="userClassManager"></property>
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+		<property name="ofuserManager" ref="ofuserManager"></property>
+	</bean>
+	<bean id="classAction" class="com.pro.actions.ClassesAction" scope="prototype">
+		<property name="userManager" ref="userManager"></property>
+		<property name="adminManager" ref="adminManager"></property>
+		<property name="userInfoManager" ref="userInfoManager"></property>
+		<property name="userclassManager" ref="userClassManager"></property>
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+		<property name="courseManager" ref="courseManager"></property>
+		<property name="kechengManager" ref="kechengManager"></property>
+		<property name="subjectManager" ref="subjectManager"></property>
+		<property name="gradeManager" ref="gradeManager"></property>
+		<property name="subBranchManager" ref="subBranchManager"></property>
+		<property name="lessonManager" ref="lessonManager"></property>
+		<property name="relationManager" ref="relationManager"></property>
+		<property name="ofuserManager" ref="ofuserManager"></property>
+	</bean>
+	<bean id="importAction" class="com.pro.actions.ImportAction" scope="prototype">
+		<property name="userclassManager" ref="userClassManager"></property>
+		<property name="userInfoManager" ref="userInfoManager"></property>
+		<property name="courseManager" ref="courseManager"></property>
+		<property name="userManager" ref="userManager"></property>
+	</bean>
+	<bean id="infoAction" class="com.pro.actions.InfoAction" scope="prototype">
+		<property name="infoManager" ref="infoManager"></property>
+	</bean>
+	<bean id="jsonAction" class="com.pro.actions.JsonAction" scope="prototype">
+		<property name="adminManager" ref="adminManager"></property>
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+		<property name="userInfoManager" ref="userInfoManager"></property>
+		<property name="kechengManager" ref="kechengManager"></property>
+		<property name="townManager" ref="townManager"></property>
+		<property name="lessonManager" ref="lessonManager"></property>
+		<property name="ofuserManager" ref="ofuserManager"></property>
+		<property name="userManager" ref="userManager"></property>
+	</bean>
+	<bean id="regSchoolAction" class="com.pro.actions.RegSchoolAction" scope="prototype">
+		<property name="regSchoolManager" ref="regSchoolManager"></property>
+		<property name="adminManger" ref="adminManager"></property>
+		<property name="schoolManager" ref="schoolManager"></property>
+		<property name="branchManager" ref="branchschoolManager"></property>
+		<property name="townManager" ref="townManager"></property>
+		<property name="cityManager" ref="cityManager"></property>
+	</bean>
+	<bean id="jsonApiManager" class="com.pro.manager.JsonApiManager">
+		<property name="infoManager" ref="infoManager"></property>
+		<property name="cityManager" ref="cityManager"></property>
+		<property name="townManager" ref="townManager"></property>
+		<property name="regSchoolManager" ref="regSchoolManager"></property>
+		<property name="lessonManager" ref="lessonManager"></property>
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	<bean id="jsonApiAction" class="com.pro.actions.JsonApiAction" scope="prototype">
+		<property name="jsonApiManager" ref="jsonApiManager"></property>
+	</bean>
+</beans>

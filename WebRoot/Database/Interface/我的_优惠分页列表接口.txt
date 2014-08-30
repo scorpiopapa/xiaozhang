@@ -1,0 +1,40 @@
+﻿我的_优惠分页列表接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "myTeam",
+	"userinfoId":"xxx", //家长ID
+	"longitude":"xxx", //	"经度"（必须）
+	"latitude":"xxx", //	"纬度"（必须）
+	"countPerPage":"xxx", // 每页多少条	默认6条
+	"currentPage":"xxx", // 当前多少页	默认第一页
+	
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	data: {
+			allPages: 1,
+			currentList: [
+					{
+					title: "一年级思维数学",	//题目
+					distance: 13779810.47365395,	//距离
+					time: "2014.05.31",		//时间
+					schoolName: "杭州启扬教育集团",	//学校名称
+					isUse: 1,			//0-未使用,1-使用，2-退款中,3-已退款
+					origin: 30,			//总价
+					schoolLogo: 					"http://changgocn.xicp.net:8080/qiyangs/images/nomal/root2.png",//学校logo
+					type: 1,			//0-优惠，1-课程
+					orderId: 3			//订单Id
+					}
+					],
+		allCount: 2,
+		countPerPage: 6,
+		currentPage: 1
+	}
+}

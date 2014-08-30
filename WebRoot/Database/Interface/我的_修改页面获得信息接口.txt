@@ -1,0 +1,77 @@
+﻿我的_修改页面获得信息接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  20140508
+修订作者:  changgo
+修订内容:  返回值多添加了cityName和gradeName字段
+======================================
+请求数据
+	"action_flag":  "findMyInfo",
+	"userinfoId":"xxx", //用户Id
+	"root":"xxx",	//0-校长，2-家长，3-学生
+响应数据（根据用户权限不同返回数据不同，包括返回参数的名称也相应变化）
+当请求参数root=4,校长访问时
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		"email":"xxx",	//邮箱
+		"name":"xxx",	//名称
+		"phone":"xxx",	//手机
+		"userName":"xxx",//用户账户
+		"password":"xxx"//用户密码
+   }
+}
+当请求参数root=2,家长访问时
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		"email":"xxx",	//邮箱
+		"name":"xxx",	//名称
+		"userName":"xxx",//用户账户
+		"password":"xxx",//用户密码
+		"gradeId":xxx,//年段ID
+		"gradeName":"xxx",//年段名称
+		"cityId":xxx,//城市ID
+		"cityName":"xxx",//城市名称
+		"citys":[
+			   {
+				cityId: xx,//int 城市主键
+				cityName: "xxx",//城市名称
+				spell: "xxx"//城市拼音
+			   }	
+			],
+		"studentId":xxx,//学生用户ID ID为空时就不要读取以下其他学生属性
+		"studentUserName":"xxx",//学生用户名
+		"studentPassword":"xxx",//学生密码
+		"studentSex":"xxx",//学生性别
+		"studentEmail":"xxx",//学生邮箱
+		"grades":[
+				{
+					gradeId: xx,//int 主键
+					gradeName: "xxx"//年纪名称
+				}
+			]
+   }
+}
+当请求参数root=3,学生访问时
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		"studentUserName":"xxx",//学生用户名
+		"studentPassword":"xxx",//学生密码
+		"studentSex":"xxx",//学生性别
+		"studentEmail":"xxx",//学生邮箱
+		"grades":[
+				{
+					gradeId: xx,//int 主键
+					gradeName: "xxx"//年纪名称
+				}
+			]
+   }
+}

@@ -1,0 +1,21 @@
+﻿我的_校长修改信息接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "updateRectorInfo",
+	"phone":"xxx",	//手机
+	"userinfoId":"xxx",	//用户ID 
+	"password":"xxx",//密码
+	"email":"xxx",	//邮箱
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+   }
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="lys" extends="struts-default">
+		<!--未登录拦截器  -->
+			<interceptors>
+				<interceptor name="adminLJQ" class="com.qiYang.util.MyInterceptor"></interceptor>
+				<interceptor-stack name="myljq">
+					<interceptor-ref name="adminLJQ"></interceptor-ref>
+					<interceptor-ref name="defaultStack"></interceptor-ref>
+				</interceptor-stack>
+			</interceptors>
+			<global-results>
+				<result name="nologin">/login.jsp</result>
+			</global-results>
+			<action name="selectaction" class="selectAction">
+				<result name="listsubject">lys/selectsubject.jsp</result>
+				<result name="listcourse">lys/selectcourse.jsp</result>
+				<result name="toaddcourse">lys/addcourse.jsp</result>
+				<result name="toupdatecourse">lys/updatecourse.jsp</result>
+				<result name="addsubject" type="redirectAction">selectaction!selectSubject.action</result>
+				<result name="addcourse" type="redirectAction">selectaction!selectCourse.action</result>
+				<result name="info">lys/info/addinfo.jsp</result>
+				<result name="selectuser">lys/selectuser.jsp</result>
+				<result name="selectrelation">lys/selectrelation.jsp</result>
+				<result name="selectschoolnotice">lys/selectschoolnotice.jsp</result>
+				<result name="selectclassnotice">lys/selectclassnotice.jsp</result>
+				<result name="selectcomplain">lys/selectcomplain.jsp</result>
+				<result name="selectreview">lys/selectreview.jsp</result>
+				<result name="toaddschoolnotice">lys/addschoolnotice.jsp</result>
+				<result name="addschoolnotice" type="redirectAction">selectaction!selectSchoolnotice.action</result>
+				<result name="toupdateschoolnotice">lys/updateschoolnotice.jsp</result>
+				<result name="toaddclassnotice">lys/addclassnotice.jsp</result>
+				<result name="addclassnotice" type="redirectAction">selectaction!selectClassnotice.action</result>
+				<result name="selectgrade">lys/selectgrade.jsp</result>
+				<result name="toaddgrade">lys/addgrade.jsp</result>
+				<result name="addgrade" type="redirectAction">selectaction!selectGrade.action</result>
+				<result name="toupdategrade">/lys/updategrade.jsp</result>
+				<result name="tosubject">/lys/addsubject.jsp</result>
+				<result name="selectteacherinfo">lys/info/selectteacher.jsp</result>
+				<result name="toupdatesubject">/lys/updatesubject.jsp</result>
+				<result name="toteacherinfo">/lys/info/addteacher.jsp</result>
+				<result name="selectlesson">/lys/selectlesson.jsp</result>
+				<result name="toaddlesson">/lys/addlesson.jsp</result>
+				<result name="addlesson" type="redirectAction">selectaction!selectLesson.action</result>
+				<result name="toupdatelesson">/lys/updatelesson.jsp</result>
+				<result name="selectprincipal">/lys/info/selectprincipal.jsp</result>
+				<result name="toaddprincipal">/lys/info/addprincipal.jsp</result>
+				<result name="addprincipal" type="redirectAction">selectaction!selectprincipal.action?tips=${tips}</result>
+				<result name="toupdateprincipal">/lys/info/updateprincipal.jsp</result>
+				<result name="error">error.jsp</result>
+				<interceptor-ref name="myljq" />
+			</action>
+				
+			<action name="addinfo" class="addInfoAction">
+				<result name="success" type="redirectAction">selectaction!selectUserinfo.action</result>
+				
+				<result name="teachersuccess" type="redirectAction">viewUsers!viewUsers.action?usertype=1</result>
+				<interceptor-ref name="myljq" />
+			</action>
+			<action name="moreaction" class="moreAction">
+				<result name="selectmore">lys/info/selectmore.jsp</result>
+				<result name="toupdateMore">lys/info/updatemore.jsp</result>
+				<result name="updateMore" type="redirectAction">moreaction!selectMore.action</result>
+				<interceptor-ref name="myljq" />
+			</action>
+			
+	</package>
+</struts>

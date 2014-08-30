@@ -1,0 +1,31 @@
+﻿我的_获取用户总校信息接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  20140531
+修订作者:  池长购
+修订内容:  响应参数添加schoolId
+======================================
+请求数据
+	"action_flag":  "findSchoolInfo",
+	"userinfoId":"xxx",	//用户ID 
+	
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		schoolName: "杭州启扬教育集团", //学校名称
+		schoolStopLocation: "清泰街佑圣观路口",	//学校地址
+		cityId: 1,	城市ID
+		schoolBusWay: "3路、66路、108路、801路、155路等",	//到校公交路线
+		schoolMinName: "杭州启扬教育",	学校简称
+		townName: "上城区",	//城区名称
+		schoolPhone: "0571－87913187",	//学校电话
+		cityName: "杭州市",	//城市名称
+		townId: 39,	//城区ID
+		schoolId: 1,	//学校IdID
+		schoolAddress: "杭州市上城区清泰街509号富春大厦3楼	//学校地址
+   }
+}
+request.getParameter("schoolId"),request.getParameter("schoolName"),request.getParameter("schoolStopLocation"),request.getParameter("cityId"),request.getParameter("schoolBusWay"),request.getParameter("schoolMinName"),request.getParameter("schoolPhone"),request.getParameter("townId"),request.getParameter("schoolAddress")

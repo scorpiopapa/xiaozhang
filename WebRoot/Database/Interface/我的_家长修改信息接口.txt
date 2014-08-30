@@ -1,0 +1,26 @@
+﻿我的_家长修改信息接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "updateMyInfoParentAndStudent",
+	"userinfoId":"xxx", //家长ID
+	"password":"xxx",	//家长密码
+	"email":"xxx",		//家长邮箱
+	"gradeId":"xxx",	//年段ID
+	"cityId":"xxx",		//城市ID
+	"studentSex":"xxx",	//学生性别
+	"studentId":"xxx",	//学生ID id为空时不修改学生信息
+	"studentPassword":"xxx",//学生密码
+	"studentEmail":"xxx",	//学生邮箱
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+   }
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	 <package name="chargevip" extends="struts-default" namespace="/">
+	 <!--未登录拦截器  -->
+		<interceptors>
+			<interceptor name="adminLJQ" class="com.qiYang.util.MyInterceptor"></interceptor>
+			<interceptor-stack name="myljq">
+				<interceptor-ref name="adminLJQ"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="nologin">/login.jsp</result>
+		</global-results>
+		<!-- 显示费用信息 -->
+		<action name="charges" class="chargeAction" method="charges">
+			<result name="success">/Pages/charge.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--添加或编辑费用  -->
+		<action name="addOrEditCharges" class="chargeAction" method="addOrEditCharges">
+			<result name="add">/Pages/addCharges.jsp</result>
+			<result name="edit">/Pages/editCharges.jsp</result>
+			
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存添加费用信息  -->
+		<action name="addChargesDo" class="chargeAction" method="addChargesDo">
+			<result name="success" type="chain">charges</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存编辑费用信息 -->
+		<action name="editChargesDo" class="chargeAction" method="editChargesDo">
+			<result name="success" type="chain">charges</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--删除 费用信息  -->
+		<action name="delCharges" class="chargeAction" method="delCharges">
+			<result name="success" type="chain">charges</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	</package> 
+</struts>    

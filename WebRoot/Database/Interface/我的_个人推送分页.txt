@@ -1,0 +1,31 @@
+﻿我的_个人推送分页接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "findTbPushRecord",
+	"userinfoId":"xxx", 	//用户id
+	"countPerPage":"xxx",	//每月多少条
+	"currentPage":"xxx"	//第几页
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		allPages: 2,	//总多少页
+		currentList: [
+		{
+		content: "校掌公司周年庆，多重大礼优惠1",//内容
+		time: "2014-05-06 06:32:36",		//时间
+		title: "校掌"	//标题
+		}
+		],
+		allCount: 6,	//总多少条
+		countPerPage: 5,//每页多少条
+		currentPage: 2	//当前第几页
+   }
+}

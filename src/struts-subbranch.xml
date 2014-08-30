@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	 <package name="subjectBranch" extends="struts-default" namespace="/">
+	 <!--未登录拦截器  -->
+		<interceptors>
+			<interceptor name="adminLJQ" class="com.qiYang.util.MyInterceptor"></interceptor>
+			<interceptor-stack name="myljq">
+				<interceptor-ref name="adminLJQ"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="nologin">/login.jsp</result>
+		</global-results>
+	 <!--*****分校科目*****-->
+	<!-- 查看分校科目信息 -->	
+		<action name="subBranch" class="subBranchAction" method="subBranch">
+			<result name="success">/Pages/subjectBranch.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	<!-- 添加或編輯分校科目信息 -->	
+		<action name="addOrEditSubBranch" class="subBranchAction" method="addOrEditSubBranch">
+			<result name="add">/Pages/addSubBranch.jsp</result>
+			<result name="edit">/Pages/editSubBranch.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	<!-- 保存添加分校科目信息 -->	
+		<action name="addSubBranchDo" class="subBranchAction" method="addSubBranchDo">
+			<result name="success" type="chain">subBranch</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存編輯分校科目信息 -->	
+		<action name="editSubBranchDo" class="subBranchAction" method="editSubBranchDo">
+			<result name="success" type="chain">subBranch</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 删除分校科目信息 -->	
+		<action name="delSubBranch" class="subBranchAction" method="delSubBranch">
+			<result name="success" type="chain">subBranch</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 城市列表  -->
+		<action name="cityView" class="subBranchAction" method="cityView">
+			<result name="success">/Pages/cityTown.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 添加城市 -->
+		<action name="addOrEditCity" class="subBranchAction" method="addOrEditCity">
+			<result name="success">/Pages/editCity.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存添加城市 -->
+		<action name="addCityDo" class="subBranchAction" method="addCityDo">
+			<result name="success" type="chain">cityView</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存编辑城市 -->
+		<action name="editCityDo" class="subBranchAction" method="editCityDo">
+			<result name="success" type="chain">cityView</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 删除城市 -->
+		<action name="delCity" class="subBranchAction" method="delCity">
+			<result name="success" type="chain">cityView</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--查看指定城市的地区  -->
+		<action name="viewTown" class="subBranchAction" method="viewTown">
+			<result name="success">/Pages/listTown.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 添加地区 -->
+		<action name="addOrEditTown" class="subBranchAction" method="addOrEditTown">
+			<result name="add">/Pages/addTown.jsp</result>
+			<result name="edit">/Pages/editTown.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存添加地区 -->
+		<action name="addTownDo" class="subBranchAction" method="addTownDo">
+			<result name="success" type="chain">viewTown</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存编辑地区 -->
+		<action name="editTownDo" class="subBranchAction" method="editTownDo">
+			<result name="success" type="chain">viewTown</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 删除地区 -->
+		<action name="delTown" class="subBranchAction" method="delTown">
+			<result name="success" type="chain">viewTown</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	</package> 
+</struts>    

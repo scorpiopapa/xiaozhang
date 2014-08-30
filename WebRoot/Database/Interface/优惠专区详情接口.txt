@@ -1,0 +1,41 @@
+﻿优惠专区详情接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  20140615
+修订作者:  池长购
+修订内容:  响应数据添加schoolId，latitude，longitude,isNot，hint，couponId,title
+======================================
+请求数据
+	 "action_flag":  "teamDetail",
+	 "teamId":"xxx" //	优惠Id
+	
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		title: "启扬优惠01",
+		hint:"xxx"	//消费提示
+		isNot:0,//0-分校，1-总校
+		latitude:0.0,//经度
+		longitude:0.0,//纬度
+		schoolId：1，//学校ID
+		summary: "接口接口连接上了快递费",//摘要
+		expireTime: "2014-05-29",//优惠券结束时间
+		isUseUnreadRefund: 1,//已使用，未就读退款：0-不支持，1-支持
+		teamPrice: 30.1,//优惠价
+		detail: "圣诞快乐放假啊石勒喀党风建设老看经富腊村西餐vhix",//详细
+		schoolName: "杭州启扬教育集团",//学校名称
+		remark: "斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯",//备注
+		nowNumber: 11,//现购买数
+		schoolAddress: "杭州市上城区清泰街509号富春大厦3楼",//学校地址
+		startTime: "2014-05-28",//优惠券结束时间
+		price: 60.7,//市场价
+		isUseRefund: 1,//未使用退款：0-不支持，1-支持
+		schoolPhone: "0571－87913187",//学校联系方式
+		isLateRefund: 1,//过期退款：0-不支持，1-支持
+		isReadRefund: 0,//已就读退款：0-不支持，1-支持
+		imgurl: "http://changgocn.xicp.net:8080/qiyangs/images/nomal/root2.png"//图片地址
+   }
+}

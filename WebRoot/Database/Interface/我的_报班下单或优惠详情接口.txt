@@ -1,0 +1,76 @@
+﻿我的_报班下单或优惠详情接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  20140615
+修订作者:  池长购
+修订内容:  订单为优惠是响应数据添加schoolId，latitude，longitude,isNot,hint,couponId，title
+======================================
+请求数据
+	"action_flag":  "myTeamOrCurriculum",
+	"orderId":"xxx",	//订单ID 
+响应数据
+当订单为报班下单时响应数据如下：
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		hint:"xxx",	//消费提示
+		isNot:0,//0-分校，1-总校
+		latitude:0.0,//经度
+		longitude:0.0,//纬度
+		couponId: "sdfs234234234",//优惠券单号
+		isUse: 1，	//0-未使用,1-使用，2-退款中,3-已退款
+		phone: "0571－87913182",//联系方式
+		direction: "新概念青少版普通班或者测试进入新概念青少版精品班",//学后方向
+		startTerm: "2013-09-15",	//班的开始时间
+		branchSchoolName: "启扬教育清泰校区",	//学校名称
+		branchschoolId，1，//分校ID
+		teamPrice,"xxx"，//优惠价格
+		schoolAddress: "杭州市上城区清泰街509号富春大厦3层",//学校地址
+		enterNeed: "◆零基础的一年级小朋友 ◆英语基础薄弱的二三年级小朋友",//入学要求
+		coursename: "剑桥国际二级上",//班的名称
+		totalStudyTime: "32课时",//总学时
+		courseUrl: "http://changgocn.xicp.net:8080/qiyangs/images/nomal/root2.png",
+		studyGoal: "◆通过游戏、故事、歌曲等培养学生对英语学习的兴趣 ◆能正确认读和书写26个英语字母 ◆能掌握与日常生活相关单词的认读 ◆能运用每课中的主要句型进行对话和交流，为小学英语打下基础 ◆能了解自然拼读的一些简单规律 ",
+		courseGoodness: "◆听说读写全面训练 ◆英语发音标准地道 ◆自然拼读及时跟进 ◆多学科的文化兼顾 ",	//学习目标
+		studyCosts: "1480",	学习费用
+		endTerm: "2014-01-05",班的结束时间
+		quantity: 3,	//班人气
+		courseIntroduce: "《剑桥国际少儿英语》(Kids Box)由国际英语教学专家卡洛琳．尼克松和 迈克尔．汤姆林森合作编写。这套教材围绕Star一家人的生活展开主题， 趣味时尚的形象，生动的故事、歌曲和丰富的活动，让孩子在自然轻松的 环境下培养听说读写技能，建立学习英语的信心，激发学习的动力。",//班的简介
+		studyTime: "周日下午班1：40－3：10",学习时间
+		textbookCost: "104",	//教材费用
+		courseBook: "练习册、光盘、学生卡片" //学习用书
+   }
+}
+当订单为优惠时响应数据如下：
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+		title: "启扬优惠01",//标题
+		hint:"xxx",	//消费提示
+		couponId: "sdfs234234234",//优惠券单号
+		latitude:0.0,//经度
+		longitude:0.0,//纬度
+		schoolId:,1//学校Id
+		isUse: 1，	//0-未使用,1-使用，2-退款中
+		summary: "接口接口连接上了快递费",//摘要
+		expireTime: "2014-05-29",//优惠券结束时间
+		isUseUnreadRefund: 1,//已使用，未就读退款：0-不支持，1-支持
+		teamPrice: 30.1,//优惠价
+		detail: "圣诞快乐放假啊石勒喀党风建设老看经富腊村西餐vhix",//详细
+		schoolName: "杭州启扬教育集团",//学校名称
+		remark: "斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯",//备注
+		nowNumber: 11,//现购买数
+		schoolAddress: "杭州市上城区清泰街509号富春大厦3楼",//学校地址
+		startTime: "2014-05-28",//优惠券结束时间
+		price: 60.7,//市场价
+		isUseRefund: 1,//未使用退款：0-不支持，1-支持
+		schoolPhone: "0571－87913187",//学校联系方式
+		isLateRefund: 1,//过期退款：0-不支持，1-支持
+		isReadRefund: 0,//已就读退款：0-不支持，1-支持
+		imgurl: "http://changgocn.xicp.net:8080/qiyangs/images/nomal/root2.png"//图片地址
+   }
+}

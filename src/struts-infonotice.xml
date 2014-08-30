@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	 <package name="infonotice" extends="struts-default" namespace="/">
+	 <!--未登录拦截器  -->
+		<interceptors>
+			<interceptor name="adminLJQ" class="com.qiYang.util.MyInterceptor"></interceptor>
+			<interceptor-stack name="myljq">
+				<interceptor-ref name="adminLJQ"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="nologin">/login.jsp</result>
+		</global-results>
+		<!-- 显示信息公告 -->
+		<action name="infoNotice" class="infoNoticeAction" method="infoNotice">
+			<result name="success">/Pages/infonotice.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--添加或编辑信息公告  -->
+		<action name="addOrEditInfoNotice" class="infoNoticeAction" method="addOrEditInfoNotice">
+			<result name="success">/Pages/editInfoNotice.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存添加信息公告  -->
+		<action name="addInfoNoticeDo" class="infoNoticeAction" method="addInfoNoticeDo">
+			<result name="success" type="chain">infoNotice</result>
+			<result name="fail">/dataerror.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存编辑信息公告  -->
+		<action name="editInfoNoticeDo" class="infoNoticeAction" method="editInfoNoticeDo">
+			<result name="success" type="chain">infoNotice</result>
+			<result name="fail">/dataerror.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存编辑信息公告  -->
+		<action name="delInfoNotice" class="infoNoticeAction" method="delInfoNotice">
+			<result name="success" type="chain">infoNotice</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	</package> 
+</struts>    

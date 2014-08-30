@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	 <package name="schooAction" extends="struts-default" namespace="/">
+	 <!--未登录拦截器  -->
+		<interceptors>
+			<interceptor name="adminLJQ" class="com.qiYang.util.MyInterceptor"></interceptor>
+			<interceptor-stack name="myljq">
+				<interceptor-ref name="adminLJQ"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="nologin">/login.jsp</result>
+		</global-results>
+	 <!--*****总校*****-->
+	 <!-- 查看总校信息 -->	
+		<action name="parentSchool" class="schoolAction" method="parentSchool">
+			<result name="success">/Pages/parentSchool.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存总校信息 -->
+	 	<action name="addSchoolDo" class="schoolAction" method="addSchoolDo">
+			<result name="success" type="chain">parentSchool</result>
+			<result name="fail">/dataerror.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 编辑总校信息 -->
+	 	<action name="editSchool" class="schoolAction" method="editSchool">
+			<result name="success">/Pages/editSchool.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存编辑总校信息 -->
+	 	<action name="editSchoolDo" class="schoolAction" method="editSchoolDo">
+			<result name="success" type="chain">parentSchool</result>
+			<result name="fail">/dataerror.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 删除总校信息 -->
+	 	<action name="delSchoolDo" class="schoolAction" method="delSchoolDo">
+			<result name="success" type="chain">parentSchool</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		
+	 <!--*****分校*****-->
+	 <!-- 保存添加分校信息 -->
+		<action name="addBranchschoolDo" class="branchAction" method="addBranchschoolDo">
+			<result name="success" type="chain">branchSchool</result>
+			<result name="fail">/dataerror.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	<!-- 查看分校信息 -->	
+		<action name="branchSchool" class="branchAction" method="branchSchool">
+			<result name="success">/Pages/schoolManage.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 编辑分校信息 -->	
+		<action name="editBranchSchool" class="branchAction" method="editBranchSchool">
+			<result name="success">/Pages/updatebranchschool.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存编辑分校信息 -->	
+		<action name="editBranchSchoolDo" class="branchAction" method="editBranchSchoolDo">
+			<result name="success" type="chain">branchSchool</result>
+			<result name="fail">/dataerror.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 删除分校信息 -->	
+		<action name="delBranchSchool" class="branchAction" method="delBranchSchool">
+			<result name="success" type="chain">branchSchool</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--*****注册总校信息*****-->
+	 <!-- 查看注册总校信息 -->	
+		<action name="viewRegSchool" class="regSchoolAction" method="viewRegSchool">
+			<result name="success">/Pages/regSchool.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 查看申请注册学校信息 -->	
+		<action name="RegSchoolDetail" class="regSchoolAction" method="RegSchoolDetail">
+			<result name="success">/Pages/regschooldetail.jsp</result>
+			<result name="fail">/dataerror.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 注册学校详情并审核 -->	
+		<action name="checkRegSchool" class="regSchoolAction" method="checkRegSchool">
+			<result type="chain">viewRegSchool</result>
+			<result name="fail">/dataerror.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 删除注册总校信息 -->
+	 	<action name="delRegSchoolDo" class="regSchoolAction" method="delRegSchoolDo">
+			<result name="success" type="chain">viewRegSchool</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	</package> 
+</struts>    

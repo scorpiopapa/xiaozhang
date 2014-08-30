@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	 <package name="adminAction" extends="struts-default" namespace="/">
+	 <!--未登录拦截器  -->
+		<interceptors>
+			<interceptor name="adminLJQ" class="com.qiYang.util.MyInterceptor"></interceptor>
+			<interceptor-stack name="myljq">
+				<interceptor-ref name="adminLJQ"></interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="nologin">/login.jsp</result>
+		</global-results>
+	 <!--注销  -->
+	 	<action name="logout" class="adminAction" method="logout">
+			<result name="success">/login.jsp</result>
+			<result name="fail">/error.jsp</result>
+		</action>
+		
+	 <!-- 管理员登录 -->	
+		<action name="checkLogin" class="adminAction" method="checkLogin">
+			<result name="success">/Pages/index.jsp</result>
+			<result name="fail">/login.jsp</result>
+		</action>
+		<!-- 密码修改 -->
+		<action name="modifyps" class="adminAction" method="modifyps">
+			<result name="success">/Pages/modifyps.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 保存密码修改 -->
+		<action name="modifypsDo" class="adminAction" method="modifypsDo">
+			<result name="success" type="chain">schoolAdmin</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	 <!--*****总校管理员*****-->
+	 <!-- 查看管理员信息 -->	
+		<action name="schoolAdmin" class="adminAction" method="schoolAdmin">
+			<result name="success">/Pages/schoolAdmin.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+	<!-- 编辑或添加总校管理员信息 -->	
+		<action name="addOrEditSchoolAdmin" class="adminAction" method="addOrEditSchoolAdmin">
+			<result name="add">/Pages/addSchoolAdmin.jsp</result>
+			<result name="edit">/Pages/editSchoolAdmin.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>	
+		<!--保存总校管理员  -->
+		<action name="addSchoolAdminDo" class="adminAction" method="addSchoolAdminDo">
+			<result name="success" type="chain">schoolAdmin</result>
+			<result name="fail" type="chain">addOrEditSchoolAdmin</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存编辑总校管理员  -->
+		<action name="editSchoolAdminDo" class="adminAction" method="editSchoolAdminDo">
+			<result name="success" type="chain">schoolAdmin</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--删除总校管理员  -->
+		<action name="delSchoolAdmin" class="adminAction" method="delSchoolAdmin">
+			<result name="success" type="chain">schoolAdmin</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 查看分校管理 -->
+		<action name="branchAdmin" class="adminAction" method="branchAdmin">
+			<result name="success">/Pages/branchAdmin.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<action name="branchAdminto" class="adminAction" method="branchAdminto">
+			<result name="branchAdminto">/Pages/branchAdmin.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存添加的校管理员  -->
+		<action name="addBranchAdminDo" class="adminAction" method="addBranchAdminDo">
+			<result name="success" type="chain">branchAdmin</result>
+			<result name="fail" type="chain">addOrEditBranchAdmin</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--保存编辑分校的管理员  -->
+		<action name="editBranchAdminDo" class="adminAction" method="editBranchAdminDo">
+			<result name="success" type="chain">branchAdmin</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!--删除分校的管理员  -->
+		<action name="delBranchAdmin" class="adminAction" method="delBranchAdmin">
+			<result name="success" type="chain">branchAdmin</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>
+		<!-- 编辑或添加分校管理员信息 -->	
+		<action name="addOrEditBranchAdmin" class="adminAction" method="addOrEditBranchAdmin">
+			<result name="add">/Pages/addBranchAdmin.jsp</result>
+			<result name="edit">/Pages/editBranchAdmin.jsp</result>
+			<result name="fail">/error.jsp</result>
+			<interceptor-ref name="myljq" />
+		</action>	
+	</package> 
+</struts>    

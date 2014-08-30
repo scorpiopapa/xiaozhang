@@ -1,0 +1,22 @@
+﻿我的_学生修改信息接口
+URL抬头：http://changgocn.xicp.net:8080/qiyangs/servlet/GogoServlet?
+======================================
+修订时间:  
+修订作者:  
+修订内容:  
+======================================
+请求数据
+	"action_flag":  "updateMyInfoStudent",
+	"gradeId":"xxx",	//年段ID
+	"studentSex":"xxx",	//学生性别
+	"studentId":"xxx",	//学生ID 
+	"studentPassword":"xxx",//学生密码
+	"studentEmail":"xxx",	//学生邮箱
+响应数据
+{
+	"succ": Boolean,
+	"code":  "xxx",
+	"message":  "xxx",
+	"data":  {
+   }
+}
