@@ -3,12 +3,12 @@
 	<proxool>
 		<alias>mysql</alias>
 		<driver-url>
-			jdbc:mysql://localhost:3306/qiyang?characterEncoding=utf8
+			jdbc:mysql://115.28.198.131:3306/qiyang?characterEncoding=utf8
 		</driver-url>
 		<driver-class>com.mysql.jdbc.Driver</driver-class>
 		<driver-properties>
-			<property name="user" value="root" />
-			<property name="password" value="renshiwu" />
+			<property name="user" value="xiao" />
+			<property name="password" value="zhang123" />
 		</driver-properties>
 		<house-keeping-sleep-time>500</house-keeping-sleep-time>
 		<simultaneous-build-throttle>100</simultaneous-build-throttle>
